@@ -59,19 +59,23 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
         }
     }
 
-  
-    response_service = client.service.consultarDatosLocalizacion(
-        Solicitud=request_data
-    )
+    try:
 
-    print(response_service, '\n')
-    # CONVERSION XML A JSON
-    response_service = response_service.replace("&lt;", "<")
-    response_service = helpers.serialize_object(response_service)
-    response_service = xmltodict.parse(response_service)
-    response_service = json.dumps(response_service, ensure_ascii=False, indent=4)
-    # print('Consulta OK - JSON\n', response_service)
-    return {"success": True, "data": json.loads(response_service)}
+        response_service = client.service.consultarDatosLocalizacion(
+            Solicitud=request_data
+        )
+
+        print(response_service, '\n')
+        # CONVERSION XML A JSON
+        response_service = response_service.replace("&lt;", "<")
+        response_service = helpers.serialize_object(response_service)
+        response_service = xmltodict.parse(response_service)
+        response_service = json.dumps(response_service, ensure_ascii=False, indent=4)
+        # print('Consulta OK - JSON\n', response_service)
+        return {"success": True, "data": json.loads(response_service)}
+    except Exception as e:
+        print(e)
+        return {"success": False, "data": [], "error": e}
 
 
 
