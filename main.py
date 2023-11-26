@@ -79,4 +79,4 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
 
 
 
-getDataExperian()
+#getDataExperian()
