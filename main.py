@@ -76,3 +76,6 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
     except Exception as e:
         print(e)
         return {"success": False, "data": [], "error": e}
+
+
+getDataExperian()
