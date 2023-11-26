@@ -64,7 +64,7 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
             solicitud=request_data
         )
 
-        # print(response_service, '\n')
+        print(response_service, '\n')
         # CONVERSION XML A JSON
         response_service = response_service.replace("&lt;", "<")
         response_service = helpers.serialize_object(response_service)
@@ -76,5 +76,3 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
     except Exception as e:
         print(e)
         return {"success": False, "data": [], "error": e}
-
-getDataExperian()

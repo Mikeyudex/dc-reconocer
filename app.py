@@ -28,8 +28,8 @@ def get_data():
                     jsonify({"success": False, "data": [], "error": 'Los parámetros document y lastname son obligatorios.'}),
                     400
                 )
-            #response_data = getDataExperian(document=document, lastname=lastname)
-            response_data = {'success': True, 'data': []}
+            response_data = getDataExperian(document=document, lastname=lastname)
+            #response_data = {'success': True, 'data': []}
             return jsonify(response_data)
 
         except Exception as error_response:
