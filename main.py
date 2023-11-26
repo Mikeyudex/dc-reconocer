@@ -51,17 +51,17 @@ def getDataExperian(document: str = "1119623677", lastname: str = "GUTIERREZ"):
 
     request_data = {
         "SolicitudDatosLocalizacion": {
-            "tipoIdentificacion": "1",
-            "identificacion": document,
-            "usuario": ws_usuario,
-            "clave": ws_clave,
-            "primerApellido": lastname,
+            "TipoIdentificacion": "1",
+            "Identificacion": document,
+            "Usuario": ws_usuario,
+            "Clave": ws_clave,
+            "PrimerApellido": lastname,
         }
     }
 
     try:
         response_service = client.service.consultarDatosLocalizacion(
-            solicitud=request_data
+            Solicitud=request_data
         )
 
         print(response_service, '\n')
