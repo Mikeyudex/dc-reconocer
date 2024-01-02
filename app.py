@@ -2,7 +2,7 @@ from flask import request, Flask, jsonify, make_response
 from configs import PORT, ENV_SERVICE, APP
 
 # from flask_cors import CORS
-#from main import getDataExperian
+from main import getDataExperian
 
 app = Flask(__name__)
 # cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -23,8 +23,8 @@ def get_data():
                     jsonify({"success": False, "data": [], "error": 'Los parámetros document y lastname son obligatorios.'}),
                     400
                 )
-            #response_data = getDataExperian(document=document, lastname=lastname)
-            response_data = {'success': True, 'data': []}
+            response_data = getDataExperian(document=document, lastname=lastname)
+            #response_data = {'success': True, 'data': []}
             return jsonify(response_data)
 
         except Exception as error_response:
